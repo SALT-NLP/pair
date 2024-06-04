@@ -23,31 +23,9 @@ NORM_FILE="src/metrics/normalizer.txt" # externally text file for normalizers
 
 METRIC_NAMES = [ND_DIFFERENCE, KL_DIVERGENCE, RD_DIFFERENCE] # rRD doesn't apply as well
 PERSPECTIVES = range(1,3)
-CUT_POINT = 1 # Changed from 2 on Dec 14th # Changed from 10 on June 7th
+CUT_POINT = 1
 
-def neutral_pov_results(retrieved):
-    results = {metric_name: [] for metric_name in METRIC_NAMES}
-    for metric_name in METRIC_NAMES:
-        print("\tComputing", metric_name)
-        for query_idx in tqdm(retrieved):
-            test_ranking = sorted(retrieved[query_idx], key=retrieved[query_idx].get, reverse=True)
-            pro_index = [idx for idx in test_ranking if f'neutral' in idx]
-            user_N = len(test_ranking)
-            pro_N = len(pro_index)
-
-            if pro_N and user_N:
-                #if (not normalizer) or (user_N != user_N_) or (pro_N != pro_N_) or (:
-                normalizer = getNormalizer(user_N,pro_N,metric_name)
-
-                fairness_score = calculateNDFairness(test_ranking,
-                                                     pro_index,
-                                                     _cut_point=CUT_POINT,
-                                                     _gf_measure=metric_name,
-                                                     _normalizer=normalizer)
-                results[metric_name].append(fairness_score)
-    return results
-
-def idea_bias_results(retrieved, qrels, qrel_threshold=4):
+def stoyanovich_bias_results(retrieved, qrels, qrel_threshold=4):
     results = {metric_name: {perspective_idx: [] for perspective_idx in PERSPECTIVES} for metric_name in METRIC_NAMES}
     for perspective_idx in PERSPECTIVES:
         print("\t\tPerspective", perspective_idx)

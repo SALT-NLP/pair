@@ -96,8 +96,18 @@ duo_score = d.Duo(ranking=get_relevant_ranking(retrieved, query_idx, qrels))
 print(duo_score)
 ```
 
-## Contributors
+## Datasets
+You can view the WikiBalance datasets on **[Hugging Face](https://huggingface.co/collections/SALT-NLP/pair-665f8ffd0b1c27cf149d3106)**.
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
+| Dataset   | Huggingface Name | Gold Labels | Type | Topics  | Queries | Documents |
+| -------- | -----| ---------| ------- | --------- | ----------- | ---------|
+| WikiBalance Synthetic    | `SALT-NLP/wiki-balance-synthetic` | ❌ | ``test``|  1,376   | 4k | 31,534 |
+| WikiBalance Natural      | `SALT-NLP/wiki-balance-natural` | ✅ | ``test``|  1,376   | 453 | 4.6k |
+
+
+## System Audits
+You can run all system audits from Tables 4 and 5 in the paper by running the following script:
+
+```bash
+bash run_audit.sh
+```
