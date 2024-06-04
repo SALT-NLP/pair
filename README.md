@@ -26,12 +26,21 @@
 <!-- > The development of PAIR is supported by: -->
 
 <h3 align="center">
-    <a href="https://nlp.stanford.edu/"><img style="float: left; padding: 2px 7px 2px 7px;" width="220" height="100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Stanford_Cardinal_logo.svg/314px-Stanford_Cardinal_logo.svg.png" /></a>
-    <a href="https://www.cc.gatech.edu/"><img style="float: middle; padding: 2px 7px 2px 7px;" width="250" height="90" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Georgia_Tech_logo_2021_Cropped.png" /></a>
-    <a href="https://ai.meta.com/research/"><img style="float: right; padding: 2px 7px 2px 7px;" width="320" height="100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Meta_Platforms_Inc._logo_%28cropped%29.svg/2560px-Meta_Platforms_Inc._logo_%28cropped%29.svg.png" /></a>
+    <a href="https://nlp.stanford.edu/"><img style="float: left; padding: 2px 7px 2px 7px;" height="100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Stanford_Cardinal_logo.svg/314px-Stanford_Cardinal_logo.svg.png" /></a>
+    <a href="https://www.cc.gatech.edu/"><img style="float: middle; padding: 2px 7px 2px 7px;" height="100" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Georgia_Tech_logo_2021_Cropped.png" /></a>
+    <a href="https://ai.meta.com/research/"><img style="float: right; padding: 2px 7px 2px 7px;" height="100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Meta_Platforms_Inc._logo_%28cropped%29.svg/2560px-Meta_Platforms_Inc._logo_%28cropped%29.svg.png" /></a>
 </h3>
 
-This repository contains data and code for the paper **Measuring and Addressing Indexical Bias in Information Retrieval** by [Caleb Ziems](https://calebziems.com/), [William Held](https://williamheld.com/), [Jane Dwivedi-Yu](https://janedwivedi.github.io/), [Diyi Yang](https://cs.stanford.edu/~diyiy/)
+This repository contains data and code for the paper **Measuring and Addressing Indexical Bias in Information Retrieval**. For more information, please reach out to the authors:
+
+<table>
+  <tr>
+    <td align="center"><a href="https://calebziems.com/"><img src="https://calebziems.com/assets/img/caleb_sf.jpeg" width="100px;" alt=""/><br /><sub><b>Caleb Ziems</b></sub></a></td>
+    <td align="center"><a href="https://williamheld.com/"><img src="https://avatars.githubusercontent.com/u/9847335?v=4" width="100px;" alt=""/><br /><sub><b>William Held</b></sub></a></td>
+    <td align="center"><a href="https://janedwivedi.github.io/"><img src="https://conference2023.mlinpl.org/images/optimized/speakers-2023-600x600/JaneDwivedi-Yu.webp" width="100px;" alt=""/><br /><sub><b>Jane Dwivedi-Yu</b></sub></a></td>
+    <td align="center"><a href="https://cs.stanford.edu/~diyiy/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-1wX8XpndSuQulTQg8O8vh63T-9QD9jD-Lg&s" width="100px;" alt=""/><br /><sub><b>Diyi Yang</b></sub></a></td>
+  </tr>
+</table>
 
 ## *What is PAIR?*
 :people_holding_hands: `PAIR` is designed to help you identify and mitigate indexical biases in your IR systems. :people_holding_hands: `PAIR` includes a set of evaluation metrics, data resources, human subjects study interfaces, and 
@@ -40,7 +49,7 @@ This repository contains data and code for the paper **Measuring and Addressing 
 
 #### From Source
 ```bash
-$ git clone https://github.com/cjziems/pair.git
+$ git clone https://github.com/SALT-NLP/pair.git
 $ cd pair
 $ conda create -n pair python=3.9.16
 $ conda activate pair
@@ -92,11 +101,3 @@ print(duo_score)
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://calebziems.com/"><img src="https://calebziems.com/assets/img/caleb_sf.jpeg" width="100px;" alt=""/><br /><sub><b>Caleb Ziems</b></sub></a></td>
-    <td align="center"><a href="https://williamheld.com/"><img src="https://avatars.githubusercontent.com/u/9847335?v=4" width="100px;" alt=""/><br /><sub><b>William Held</b></sub></a></td>
-    <td align="center"><a href="https://janedwivedi.github.io/"><img src="https://conference2023.mlinpl.org/images/optimized/speakers-2023-600x600/JaneDwivedi-Yu.webp" width="100px;" alt=""/><br /><sub><b>Jane Dwivedi-Yu</b></sub></a></td>
-    <td align="center"><a href="https://cs.stanford.edu/~diyiy/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-1wX8XpndSuQulTQg8O8vh63T-9QD9jD-Lg&s" width="100px;" alt=""/><br /><sub><b>Diyi Yang</b></sub></a></td>
-  </tr>
-</table>
