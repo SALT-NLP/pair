@@ -19,7 +19,7 @@
         <a href="#quick-example">Quick Example</a> |        
         <a href="#datasets">Datasets</a> |
         <a href="#system-audits">System Audits</a> |
-        <a href="#behavioral-experiments">Behavioral Experiments</a>
+        <a href="#validations-and-additional-experiments">Validations and Additional Experiments</a>
     <p>
 </h4>
 
@@ -101,18 +101,31 @@ You can view the WikiBalance datasets on **[Hugging Face](https://huggingface.co
 
 | Dataset   | Huggingface Name | Gold Labels | Type | Topics  | Queries | Documents |
 | -------- | -----| ---------| ------- | --------- | ----------- | ---------|
-| WikiBalance Synthetic    | `SALT-NLP/wiki-balance-synthetic` | ❌ | ``test``|  1,376   | 4k | 31,534 |
-| WikiBalance Natural      | `SALT-NLP/wiki-balance-natural` | ✅ | ``test``|  1,376   | 453 | 4.6k |
+| WikiBalance Synthetic    | `SALT-NLP/wiki-balance-synthetic` | ❌ | ``test``|  1.4k   | 4k | 31.5k |
+| WikiBalance Natural      | `SALT-NLP/wiki-balance-natural` | ✅ | ``test``|  288   | 452 | 4.6k |
 
 
 ## System Audits
-You can run all system audits from Tables 4 and 5 in the paper by running the following script:
+You can replicate all system audits from Tables 4 and 5 in the paper by running the following script:
 
 ```bash
 bash run_audit.sh
 ```
 
-## Experiments
-To print all tables from the paper, run `print_tables.py` from the main directory.
+Only BM-25 and ColBERT require special setup to run. To set up ColBERT, follow the (BEIR demo instructions here)[https://github.com/beir-cellar/beir/tree/main/examples/retrieval/evaluation/late-interaction]. To run BM-25, use the following steps:
 
-1. To replicate our metric validations in Tables 6 and 7, run `python -m src.experiments.metric_validation`
+**On Mac**
+1. Download `elasticsearch.zip` and unpack locally: [elastic.co/downloads/elasticsearch](https://www.elastic.co/downloads/elasticsearch)
+2. Edit `config/elasticsearch.yml` to remove security features, setting `false` to `xpack.security.enabled`, `xpack.security.http.ssl.enabled`, `xpack.security.transport.ssl.enabled`
+3. Move to the elasticsearch directory and run elasticsearch `bin/elasticsearch`
+4. Run using `python -m src.modeling.run_bm25 --dataset "idea/wiki" --model "bm25"`
+**On Linux**
+Follow these instructions: [linuxize.com/post/how-to-install-elasticsearch-on-ubuntu-18-04](https://linuxize.com/post/how-to-install-elasticsearch-on-ubuntu-18-04/)
+
+## Validations and Additional Experiments
+1. To print the summary tables from the paper, run `print_tables.py` from the main directory.
+2. To replicate our metric validations in Table 2 (as well as Tables 6 and 7 in the Appendix), run `python -m src.experiments.metric_validation`
+3. To replicate the SEME experiments, you can do the following:
+   a. Re-run the experiments with your own participants using the HIT interface, `hit/seme/hit_pair_seme.html` OR
+   b. Download the experimental data from (this Drive link)[https://drive.google.com/file/d/1TXKZueZFo_VbzMyui-V5YkQVvixysQuA/view?usp=drive_link] and place it in the `hit/seme` directory.
+   c. Run `python -m src.experiments.seme_experiment.py`
