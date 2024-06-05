@@ -43,7 +43,7 @@ This repository contains data and code for the paper **Measuring and Addressing 
 </table>
 
 ## *What is PAIR?*
-:people_holding_hands: `PAIR` is designed to help you identify and mitigate indexical biases in your IR systems. :people_holding_hands: `PAIR` includes a set of evaluation metrics, data resources, human subjects study interfaces, and 
+:people_holding_hands: `PAIR` is designed to help you identify and mitigate indexical biases in your IR systems. :people_holding_hands: `PAIR` includes a set of evaluation metrics, data resources, and human subjects study interfaces that help you measure and experimentally understand the Search Engine Manipulation Effect.
 
 ## Setup
 
