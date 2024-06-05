@@ -78,7 +78,10 @@ class Duo(object):
         """Returns +1 if the row is dominated by positive numbers and 
         -1 if the row is dominated by negative numbers"""
         gt = (arr>0).astype(int)
-        return 2.0*(((gt.sum(axis=1))/arr.shape[1])>0.5).astype(int)-1.0
+        if (len(arr.shape)>1):
+            return 2.0*(((gt.sum(axis=1))/arr.shape[1])>0.5).astype(int)-1.0
+        elif len(arr)==1:
+            return 2.0*(gt[0]).astype(int)-1.0
     
     def metric(self, batch, use_sign=False):
         if use_sign:
@@ -100,7 +103,8 @@ class Duo(object):
     def Duo_batch_(self, batch, normalization="max", use_sign=False):
         sign = 1.0
         if use_sign:
-            sign = self.sign( self.Duo_raw_batch(batch, use_sign) )
+            out = self.Duo_raw_batch(batch, use_sign)
+            sign = self.sign( out )
         if normalization=='Z':
             return sign*(1.0 - ((self.Duo_raw_batch(batch) -  self.Z['mean']) / self.Z['std']))
         if not (self.Z['max'] - self.Z['min']):

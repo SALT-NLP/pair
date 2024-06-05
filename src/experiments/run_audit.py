@@ -164,6 +164,8 @@ def main():
 
     # compute and write indexical bias results for each category
     for cat in cats:
+        if cat in {"Religion", "Philosophy"}:
+                continue
         retrieved_cat = {query_idx:retrieved[query_idx] for query_idx in retrieved if belongs_to_category(query_idx.split('_')[0], category=cat, categories_csv=categories_csv)}
         if len(retrieved_cat)>1:
             duo_results_cat = indexical_bias_results(retrieved_cat, corpus, qrels, fit_corpus=fit_corpus, fit_qrels=fit_qrels, spurious_corpus=spurious_corpus, path_to_Z_score=args.path_to_Z_score, step_size=args.step_size, embedding_model=args.embedding_model, random_state=args.random_state)
