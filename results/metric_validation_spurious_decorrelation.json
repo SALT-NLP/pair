@@ -1,0 +1,11 @@
+{"sentence-t5-large": 0.9447674418604651,
+ "nli-roberta-large": 0.9147286821705426,
+ "roberta-large-nli-mean-tokens": 0.9147286821705426,
+ "paraphrase-distilroberta-base-v2": 0.9205426356589147,
+ "paraphrase-mpnet-base-v2": 0.8924418604651163,
+ "roberta-base-nli-stsb-mean-tokens": 0.8924418604651163,
+ "roberta-large-nli-stsb-mean-tokens": 0.9021317829457365,
+ "facebook-dpr-question_encoder-single-nq-base": 0.8895348837209303,
+ "roberta-base-nli-mean-tokens": 0.8953488372093024,
+ "nli-roberta-base": 0.8953488372093024,
+ "sentence-t5-base": 0.9021317829457365}

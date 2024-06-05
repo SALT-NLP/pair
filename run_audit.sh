@@ -6,7 +6,7 @@ do
         do
             for emb in "sentence-t5-xl" #"nli-roberta-large" #"all-MiniLM-L6-v2"
             do
-                echo "CUDA_VISIBLE_DEVICES=0 python -m src.modeling.run --dataset 'idea/$dataset' --fit_dataset 'idea/wiki' --model '$model' --embedding_model '$emb' --results_dir 'results_$emb' --random_state $random_state --spurious_dataset 'idea/spurious'"
+                echo "CUDA_VISIBLE_DEVICES=0 python -m src.experiments.run_audit --dataset'$dataset' --fit_dataset "synthetic" --model '$model' --embedding_model '$emb' --results_dir 'results_$emb' --random_state $random_state --spurious_dataset 'spurious'"
                 CUDA_VISIBLE_DEVICES=0 python -m src.experiments.run_audit --dataset $dataset --fit_dataset "synthetic" --model "$model" --embedding_model "$emb" --results_dir "results_$emb" --random_state $random_state
             done
         done

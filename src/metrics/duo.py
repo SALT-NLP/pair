@@ -205,6 +205,9 @@ def indexical_bias_results(retrieved, corpus, qrels, qrel_threshold=4, step_size
     d = Duo(embedding_model=embedding_model, step_size=step_size, random_state=random_state)
     print('length of retrieved', len(retrieved.keys()))
     for query_idx in tqdm(retrieved):
+        if query_idx not in qrels:
+            continue
+            
         success = True
         corpus_relevant_subset = get_relevant_corpus_retrieved(corpus, retrieved, query_idx, qrels, qrel_threshold)
         fit_corpus_relevant_subset = corpus_relevant_subset

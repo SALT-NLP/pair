@@ -111,3 +111,8 @@ You can run all system audits from Tables 4 and 5 in the paper by running the fo
 ```bash
 bash run_audit.sh
 ```
+
+## Experiments
+To print all tables from the paper, run `print_tables.py` from the main directory.
+
+1. To replicate our metric validations in Tables 6 and 7, run `python -m src.experiments.metric_validation`
